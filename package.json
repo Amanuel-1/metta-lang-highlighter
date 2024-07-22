@@ -1,13 +1,16 @@
 {
-  "name": "metta-lang-highlighter",
-  "displayName": "metta-lang synthax highlighter",
+  "name": "meTTa-lang-highlighter",
+  "displayName": "meTTa language synthax highlighter",
   "description": "this is a synthax highlighter made for the metta programming language",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
-    "vscode": "^1.91.0"
+    "vscode": "^1.70.0"
   },
-  "icon": "images/metta.ico",
+  "icon": "metta.ico",
   "publisher": "AmanuelGaromsa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Amanuel-1/metta-lang-highlighter"},
   "categories": [
     "Programming Languages"
   ],
