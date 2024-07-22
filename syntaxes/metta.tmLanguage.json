@@ -1,78 +1,111 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Metta",
-	"scopeName": "source.metta",
-	"fileTypes": ["metta", "msa", "mps"],
-	"patterns": [
-	  { "include": "#comments" },
-	  { "include": "#round-brackets" },
-	  { "include": "#constants" },
-	  { "include": "#lang" },
-	  { "include": "#strings" },
-	  { "include": "#variables" },
-	  { "include": "#paren_expression" }
-	],
-	"repository": {
-	  "comments": {
-		"captures": {
-		  "1": { "name": "punctuation.definition.comment.metta" }
-		},
-		"match": "(;).*$\\n?",
-		"name": "comment.line.semicolon.metta"
-	  },
-	  "round-brackets": {
-		"begin": "\\(",
-		"beginCaptures": { "0": { "name": "entity.name.tag.round-brackets.begin.metta" } },
-		"end": "\\)",
-		"endCaptures": { "0": { "name": "entity.name.tag.round-brackets.end.metta" } },
-		"name": "meta.round-brackets",
-		"patterns": [{ "include": "source.metta" }]
-	  },
-	  "constants": {
-		"patterns": [
-		  { "match": "\\b(True|False)\\b", "name": "constant.language.boolean.metta" },
-		  { "match": "(?<=[\\(\\s])(-?[0-9]+)(?=[\\s()])", "name": "constant.numeric.metta" },
-		  { "match": "\\b(Number|Bool)\\b", "name": "support.type.metta" }
-		]
-	  },
-	  "$self": {},
-	  "$base": {},
-	  "lang": {
-		"patterns": [
-		  { "match": "(?x)(?<=(\\s|\\())(>=?|<=?|=|[\\*\\/\\+\\-%]|==)(?=(\\s|\\)|\\())", "name": "keyword.operator.arithmetic.metta" },
-		  { "match": "(?x)(?<=(\\s|\\(|\\[))(and|or|not|xor|flip|empty|if|case|let|let\\*)(?=(\\s|\\)|\\())", "name": "keyword.operator.other.metta" },
-		  { "match": "(?x)(?<=(\\s|\\())(import!|bind!|new-space|add-atom|remove-atom|pragma!|get-type|get-metatype|println!|trace!|nop|new-state|get-state|change-state!|match|car-atom|cdr-atom|cons-atom|assertEqual|assertEqualToResult|collapse|superpose|get-metatype|load-ascii|call|regex|unify|quote|add-reduct)(?=(\\s|\\)|\\())", "name": "entity.name.function.metta" }
-		]
-	  },
-	  "strings": {
-		"patterns": [
-		  {
-			"begin": "'",
-			"beginCaptures": { "0": { "name": "punctuation.definition.string.begin.metta" } },
-			"end": "'",
-			"endCaptures": { "0": { "name": "punctuation.definition.string.end.metta" } },
-			"name": "string.quoted.single.metta",
-			"patterns": [{ "match": "\\\\.", "name": "constant.character.escape.metta" }]
-		  },
-		  {
-			"begin": "\"",
-			"beginCaptures": { "0": { "name": "punctuation.definition.string.begin.metta" } },
-			"end": "\"",
-			"endCaptures": { "0": { "name": "punctuation.definition.string.end.metta" } },
-			"name": "string.quoted.double.metta",
-			"patterns": [{ "match": "\\\\.", "name": "constant.character.escape.metta" }]
-		  }
-		]
-	  },
-	  "variables": {
-		"patterns": [
-		  {
-			"captures": { "0": { "name": "punctuation.definition.variable" }, "1": { "name": "variable.other.metta" } },
-			"match": "(\\$)([a-zA-Z0-9_\\-]+)",
-			"name": "variable.declaration.metta"
-		  }
-		]
-	  }
-	}
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Metta",
+  "scopeName": "source.metta",
+  "fileTypes": ["metta", "msa", "mps"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#round-brackets" },
+    { "include": "#constants" },
+    { "include": "#lang" },
+    { "include": "#strings" },
+    { "include": "#variables" },
+    { "include": "#paren_expression" }
+  ],
+  "repository": {
+    "comments": {
+      "captures": {
+        "1": { "name": "punctuation.definition.comment.metta" }
+      },
+      "match": "(;).*$\\n?",
+      "name": "comment.line.semicolon.metta"
+    },
+    "round-brackets": {
+      "begin": "\\(",
+      "beginCaptures": {
+        "0": { "name": "entity.name.tag.round-brackets.begin.metta" }
+      },
+      "end": "\\)",
+      "endCaptures": {
+        "0": { "name": "entity.name.tag.round-brackets.end.metta" }
+      },
+      "name": "meta.round-brackets",
+      "patterns": [{ "include": "source.metta" }]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "\\b(True|False)\\b",
+          "name": "constant.language.boolean.metta"
+        },
+        {
+          "match": "(?<=[\\(\\s])(-?[0-9]+)(?=[\\s()])",
+          "name": "constant.numeric.metta"
+        },
+        { "match": "\\b(Number|Bool)\\b", "name": "support.type.metta" }
+      ]
+    },
+    "$self": {},
+    "$base": {},
+    "lang": {
+      "patterns": [
+        {
+          "match": "(?x)(?<=(\\s|\\())(>=?|<=?|=|[\\*\\/\\+\\-%]|==)(?=(\\s|\\)|\\())",
+          "name": "keyword.operator.arithmetic.metta"
+        },
+        {
+          "match": "(?x)(?<=(\\s|\\(|\\[))(and|or|not|xor|flip|empty|if|case|let|let\\*)(?=(\\s|\\)|\\())",
+          "name": "keyword.operator.other.metta"
+        },
+        {
+          "match": "(?x)(?<=(\\s|\\())(import!|bind!|new-space|add-atom|remove-atom|pragma!|get-type|get-metatype|println!|trace!|nop|new-state|get-state|change-state!|match|car-atom|cdr-atom|cons-atom|assertEqual|assertEqualToResult|collapse|superpose|get-metatype|load-ascii|call|regex|unify|quote|add-reduct)(?=(\\s|\\)|\\())",
+          "name": "entity.name.function.metta"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "'",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.metta" }
+          },
+          "end": "'",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.metta" }
+          },
+          "name": "string.quoted.single.metta",
+          "patterns": [
+            { "match": "\\\\.", "name": "constant.character.escape.metta" }
+          ]
+        },
+        {
+          "begin": "\"",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.string.begin.metta" }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.metta" }
+          },
+          "name": "string.quoted.double.metta",
+          "patterns": [
+            { "match": "\\\\.", "name": "constant.character.escape.metta" }
+          ]
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "match": "(\\$)([a-zA-Z0-9_\\-]+)",
+          "name": "variable.name",
+          "captures": {
+            "1": { "name": "punctuation.definition.comment.metta" },
+            "2": { "name": "variable.language" }
+          }
+        }
+      ]
+    }
   }
-  
+}

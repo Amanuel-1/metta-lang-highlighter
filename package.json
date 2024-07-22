@@ -2,7 +2,7 @@
   "name": "meTTa-lang-highlighter",
   "displayName": "meTTa language synthax highlighter",
   "description": "this is a synthax highlighter made for the metta programming language",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -24,7 +24,14 @@
     "grammars": [{
       "language": "metta",
       "scopeName": "source.metta",
-      "path": "./syntaxes/metta.tmLanguage.json"
-    }]
+      "path": "./syntaxes/metta.tmLanguage.json",
+      "injectionSelector": "L:source.metta"
+
+    }
+
+    
+   ]
   }
+ 
+
 }
