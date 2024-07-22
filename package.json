@@ -1,0 +1,27 @@
+{
+  "name": "metta-lang-highlighter",
+  "displayName": "metta-lang synthax highlighter",
+  "description": "this is a synthax highlighter made for the metta programming language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "icon": "images/metta.ico",
+  "publisher": "AmanuelGaromsa",
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "metta",
+      "aliases": ["metta", ""],
+      "extensions": [".metta"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "metta",
+      "scopeName": "source.metta",
+      "path": "./syntaxes/metta.tmLanguage.json"
+    }]
+  }
+}
