@@ -58,7 +58,7 @@
           "name": "keyword.operator.other.metta"
         },
         {
-          "match": "(?x)(?<=(\\s|\\())(import!|bind!|new-space|add-atom|remove-atom|pragma!|get-type|get-metatype|println!|trace!|nop|new-state|get-state|change-state!|match|car-atom|cdr-atom|cons-atom|assertEqual|assertEqualToResult|collapse|superpose|get-metatype|load-ascii|call|regex|unify|quote|add-reduct)(?=(\\s|\\)|\\())",
+          "match": "(?x)(?<=(\\s|\\())(import!|bind!|new-space|add-atom|remove-atom|pragma!|get-type|get-metatype|println!|trace!|nop|new-state|get-state|change-state!|match|car-atom|cdr-atom|cons-atom|assertEqual|assertEqualToResult|collapse|superpose|get-metatype|load-ascii|call|regex|unify|quote|add-reduct|decons-atom|min-atom|max-atom|size-atom|index-atom|pow-math|sqrt-math|abs-math|log-math|trunc-math|ceil-math|floor-math|round-math|sin-math|asin-math|cos-math|acos-math|tan-math|atan-math|isnan-math|isinf-math|random-int|random-float|collapse-bind|superpose-bind|metta|id|)(?=(\\s|\\)|\\())",
           "name": "entity.name.function.metta"
         }
       ]
