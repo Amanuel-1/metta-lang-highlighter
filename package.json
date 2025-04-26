@@ -1,8 +1,8 @@
 {
-  "name": "meTTa-lang-highlighter",
+  "name": "meTTa Extension Pack",
   "displayName": "meTTa language support",
   "description": "Full language support for the Metta programming language including syntax highlighting, hover information, and import navigation",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "engines": {
     "vscode": "^1.70.0"
   },
