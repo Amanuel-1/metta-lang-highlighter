@@ -1,18 +1,20 @@
-! (get-type car-atom) ; (-> Expression %Undefined%)
-! (car-atom (1 2 3)) ; 1
-! (car-atom (Cons X Nil)) ; Cons
-! (car-atom (seg (point 1 1) (point 1 4))) ; seg
+; Test file for Metta language support
 
-(: map-expr (-> (-> $t $t) Expression Expression))
-(= (map-expr $f $expr)
-   (if (== $expr ()) ()
-       (let* (($head (car-atom $expr))
-              ($tail (cdr-atom $expr))
-              ($head-new ($f $head))
-              ($tail-new (map-expr $f $tail))
-             )
-         (cons-atom $head-new $tail-new)
-       )
-   )
-)
-! (map-expr not (False True False False))
+!(register-module! ../../../../hyperon-openpsi)
+!(register-module! ../../../utilities-module)
+
+!(import! &self hyperon-openpsi:main:rules:rule)
+!(import! &self hyperon-openpsi:main:types)
+!(import! &self utilities-module:utils)
+
+; Test hover functionality
+!(test-function! arg1 arg2)
+!(another-command! with:some:namespace)
+
+; Test formatting
+!(format-test!
+    (nested
+        (function
+            (call
+                (with
+                    (parameters)))))) 

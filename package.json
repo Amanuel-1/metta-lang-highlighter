@@ -1,8 +1,8 @@
 {
   "name": "meTTa-lang-highlighter",
-  "displayName": "meTTa language synthax highlighter",
-  "description": "this is a synthax highlighter made for the metta programming language",
-  "version": "0.0.4",
+  "displayName": "meTTa language support",
+  "description": "Full language support for the Metta programming language including syntax highlighting, hover information, and import navigation",
+  "version": "0.0.5",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -10,28 +10,92 @@
   "publisher": "AmanuelGaromsa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Amanuel-1/metta-lang-highlighter"},
+    "url": "https://github.com/Amanuel-1/metta-lang-highlighter"
+  },
   "categories": [
     "Programming Languages"
   ],
+  "extensionPack": [],
   "contributes": {
     "languages": [{
       "id": "metta",
-      "aliases": ["metta", ""],
-      "extensions": [".metta"],
-      "configuration": "./language-configuration.json"
+      "aliases": ["metta", "Metta"],
+      "extensions": [".metta", ".test.metta"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./metta.ico",
+        "dark": "./metta.ico"
+      }
     }],
     "grammars": [{
       "language": "metta",
       "scopeName": "source.metta",
       "path": "./syntaxes/metta.tmLanguage.json",
       "injectionSelector": "L:source.metta"
-
+    }],
+    "commands": [{
+      "command": "metta.navigateToImport",
+      "title": "Navigate to Import"
+    }],
+    "keybindings": [{
+      "command": "metta.navigateToImport",
+      "key": "ctrl+click",
+      "mac": "cmd+click",
+      "when": "editorTextFocus && editorLangId == metta"
+    }],
+    "fileExtensions": {
+      ".metta": "metta",
+      ".test.metta": "metta"
+    },
+    "fileAssociations": [
+      {
+        "pattern": "**/*.metta",
+        "icon": "./metta.ico"
+      },
+      {
+        "pattern": "**/*.test.metta",
+        "icon": "./test.ico"
+      }
+    ],
+    "configurationDefaults": {
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": "constant.language.special-token.metta",
+            "settings": {
+              "fontStyle": "bold",
+              "foreground": "#8F6FFF"
+            }
+          },
+          {
+            "scope": "variable.other.constant.metta",
+            "settings": {
+              "fontStyle": "bold",
+              "foreground": "#8F6FFF"
+            }
+          }
+        ]
+      }
     }
-
-    
-   ]
+  },
+  "activationEvents": [
+    "onLanguage:metta"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.13.0",
+    "typescript": "^4.7.2"
   }
- 
-
 }

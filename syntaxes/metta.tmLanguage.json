@@ -10,7 +10,9 @@
     { "include": "#lang" },
     { "include": "#strings" },
     { "include": "#variables" },
-    { "include": "#paren_expression" }
+    { "include": "#types" },
+    { "include": "#paren_expression" },
+    { "include": "#tokens" }
   ],
   "repository": {
     "comments": {
@@ -50,15 +52,15 @@
     "lang": {
       "patterns": [
         {
-          "match": "(?x)(?<=(\\s|\\())(>=?|<=?|=|[\\*\\/\\+\\-%]|==)(?=(\\s|\\)|\\())",
+          "match": "(?x)(?<=^|[\\s\\(\\[])(>=?|<=?|=|[\\*\\/\\+\\-%]|==)(?=($|[\\s\\)\\(]))",
           "name": "keyword.operator.arithmetic.metta"
         },
         {
-          "match": "(?x)(?<=(\\s|\\(|\\[))(and|or|not|xor|flip|empty|if|case|let|let\\*)(?=(\\s|\\)|\\())",
-          "name": "keyword.operator.other.metta"
+          "match": "(?x)(?<=^|[\\s\\(\\[])(and|or|not|xor|flip|empty|if|case|let|let\\*)(?=($|[\\s\\)\\(]))",
+          "name": "keyword.control.metta"
         },
         {
-          "match": "(?x)(?<=(\\s|\\())(import!|bind!|new-space|add-atom|remove-atom|pragma!|get-type|get-metatype|println!|trace!|nop|new-state|get-state|change-state!|match|car-atom|cdr-atom|cons-atom|assertEqual|assertEqualToResult|collapse|superpose|get-metatype|load-ascii|call|regex|unify|quote|add-reduct|decons-atom|min-atom|max-atom|size-atom|index-atom|pow-math|sqrt-math|abs-math|log-math|trunc-math|ceil-math|floor-math|round-math|sin-math|asin-math|cos-math|acos-math|tan-math|atan-math|isnan-math|isinf-math|random-int|random-float|collapse-bind|superpose-bind|metta|id|)(?=(\\s|\\)|\\())",
+          "match": "(?x)(?<=^|[\\s\\(\\[])(import!|bind!|new-space|add-atom|remove-atom|pragma!|get-type|get-metatype|get-atoms|println!|trace!|nop|new-state|get-state|change-state!|match|car-atom|cdr-atom|cons-atom|assertEqual|assertEqualToResult|collapse|superpose|get-metatype|load-ascii|call|regex|unify|quote|add-reduct|decons-atom|min-atom|max-atom|size-atom|index-atom|pow-math|sqrt-math|abs-math|log-math|trunc-math|ceil-math|floor-math|round-math|sin-math|asin-math|cos-math|acos-math|tan-math|atan-math|isnan-math|isinf-math|random-int|random-float|collapse-bind|superpose-bind|metta|id)(?=($|[\\s\\)\\(]))",
           "name": "entity.name.function.metta"
         }
       ]
@@ -104,6 +106,50 @@
             "1": { "name": "punctuation.definition.comment.metta" },
             "2": { "name": "variable.language" }
           }
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "match": "\\bGrounded\\b",
+          "name": "support.type.grounded.metta"
+        },
+        {
+          "match": "\\bAtom\\b",
+          "name": "support.type.atom.metta"
+        },
+        {
+          "match": "\\bSymbol\\b",
+          "name": "support.type.symbol.metta"
+        },
+        {
+          "match": "\\bExpression\\b",
+          "name": "support.type.expression.metta"
+        },
+        {
+          "match": "\\bNumber\\b",
+          "name": "support.type.number.metta"
+        },
+        {
+          "match": "\\bBool\\b",
+          "name": "support.type.bool.metta"
+        },
+        {
+          "match": "\\$[a-zA-Z0-9_\\-]+",
+          "name": "support.type.variable.metta"
+        }
+      ]
+    },
+    "tokens": {
+      "patterns": [
+        {
+          "match": "&(self|modulatorSpace|logSpace|other)",
+          "name": "constant.language.special-token.metta"
+        },
+        {
+          "match": "(&[a-zA-Z0-9_\\-]+)",
+          "name": "variable.other.constant.metta"
         }
       ]
     }
