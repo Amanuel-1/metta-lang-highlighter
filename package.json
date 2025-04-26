@@ -2,7 +2,7 @@
   "name": "metta-extension-pack",
   "displayName": "meTTa Extension Pack",
   "description": "Full language support for the Metta programming language including syntax highlighting, hover information, and import navigation",
-  "version": "0.0.6",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -10,7 +10,7 @@
   "publisher": "AmanuelGaromsa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Amanuel-1/metta-lang-highlighter"
+    "url": "https://github.com/Amanuel-1/metta-extension-pack"
   },
   "categories": [
     "Programming Languages"
