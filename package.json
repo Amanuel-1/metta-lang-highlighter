@@ -1,6 +1,6 @@
 {
-  "name": "meTTa Extension Pack",
-  "displayName": "meTTa language support",
+  "name": "metta-extension-pack",
+  "displayName": "meTTa Extension Pack",
   "description": "Full language support for the Metta programming language including syntax highlighting, hover information, and import navigation",
   "version": "0.0.6",
   "engines": {
